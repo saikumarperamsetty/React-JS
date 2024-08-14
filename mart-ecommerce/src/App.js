@@ -7,9 +7,6 @@ import Routing from './components/Routing/Routing';
 function App() {
   return (
     <div>
-      {/* <center>
-        <h2 style={{color:'orange'}}>Mart-Ecommerce React Project 7-8-2024</h2>
-      </center> */}
       <Header />
       <Routing />
     </div>
