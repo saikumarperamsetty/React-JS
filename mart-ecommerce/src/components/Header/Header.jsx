@@ -17,7 +17,7 @@ const Header = () => {
             <ul class="navbar-nav ms-auto">
 
               <li class="nav-item me-4">
-                <Link class="nav-link text-dark" to="/home">Home</Link>
+                <Link class="nav-link text-dark" to="/">Home</Link>
               </li>
 
               <li class="nav-item me-4">
