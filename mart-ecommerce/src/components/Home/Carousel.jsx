@@ -13,8 +13,8 @@ const Carousel = () => {
         <div className='col-md-1'></div>
         <div className='col-md-4'>
           <h1>{item.title}</h1>
-          <p>{item.desc}</p>
-          <button style={{border:'0px'}}>Visit Collection</button>
+          <p className='text-secondary'>{item.desc}</p>
+          <button style={{border:'0px',borderRadius:'5px'}}>Visit Collection</button>
         </div>
         <div className='col-md-1'></div>
         <div className='col-md-5 d-flex justify-content-center align-items-center'>
