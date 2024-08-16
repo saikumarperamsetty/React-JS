@@ -5,9 +5,12 @@ const Card2 = () => {
   return (
     <div className="container mt-4 mb-4" style={{backgroundColor:'#f8f9fa'}}>
         <h2 className='text-center p-4'>Big Discount</h2>
+
         <div className="row g-2">
+            
             {
                 discoutProducts.map((disc)=>(
+
                     <div className="col-md-4">
                         <div className="card" style={{height:'100%'}}>
 

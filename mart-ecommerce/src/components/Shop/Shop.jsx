@@ -26,7 +26,7 @@ const Shop = () => {
   }
 
   let buttonHandler = () =>{
-    toast.success('Item Added Successfully');
+    toast.success('Product has been added to Cart!!');
   }
 
   return (
@@ -60,9 +60,10 @@ const Shop = () => {
       <div className="col-md-8">
         <form className='d-flex' role='search' onSubmit={handleSubmit}>
           <input className='form-control' type="search" placeholder="search" />
-          <button className="btn btn-secondary" type='submit'><i className="bi bi-search p-2"></i></button>
+          <button style={{border:'0px'}} type='submit'><i className="bi bi-search p-2 ms-2"></i></button>
         </form>
       </div>
+
     </div>
 
     {/* for Every product */}
@@ -71,38 +72,68 @@ const Shop = () => {
             productCategories.length > 0 ? (
             productCategories.map((item)=>(
 
+              // <div className="col-md-4">
+              //       <div className="card" style={{height:'100%'}}>
+
+              //       <div className="card-body">
+              //       <Link to={`/product/${item.id}`}>
+              //           <div className='card-img-top d-flex justify-content-center'>
+              //               <img src={item.imgUrl} class="card-img-top img-fluid" alt={item.id} />
+              //           </div>
+              //       </Link>
+
+              //       <div className="card-title">
+              //       <h6 className='card-title m-2'>{item.productName}</h6>
+              //       <span className='d-flex mt-4 mb-4 m-2'>
+              //           <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
+              //           <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
+              //           <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
+              //           <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
+              //           <i class="bi bi-star"></i>
+              //       </span>
+              //       </div>
+
+              //   <div className='d-flex justify-content-between m-2'>
+              //     <h6>$ {item.price}</h6>
+              //       <button onClick={buttonHandler} style={{ border: '0px',borderRadius: '50%',width: '30px',height: '30px', paddingBottom: '4px'}}>+</button>
+              //   </div>
+              //     </div>
+              //   </div>
+              // </div>
+
+
               <div className="col-md-4">
-                    <div className="card" style={{height:'100%'}}>
+                        <div className="card" style={{height:'100%'}}>
 
-                    <div className="card-body">
-                    <Link to={`/product/${item.id}`}>
-                        <div className='card-img-top d-flex justify-content-center'>
-                            <img src={item.imgUrl} class="card-img-top img-fluid" alt={item.id} />
+                        <div className="card-body">
+                          <Link to={`/product/${item.id}`}>
+                            <div className='card-img-top d-flex justify-content-center'>
+                                <img src={item.imgUrl} class="card-img-top w-75" alt={item.id} />
+                            </div>
+                          </Link>
                         </div>
-                    </Link>
 
-                    <div className="card-title">
-                    <h6 className='card-title m-2'>{item.productName}</h6>
-                    <span className='d-flex mt-4 mb-4 m-2'>
-                        <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
-                        <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
-                        <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
-                        <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
-                        <i class="bi bi-star"></i>
-                    </span>
+                        <div className="card-title">
+                        <h6 className='card-title m-2'>{item.productName}</h6>
+                        <span className='d-flex mt-4 mb-4 m-2'>
+                            <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
+                            <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
+                            <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
+                            <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
+                            <i class="bi bi-star"></i>
+                        </span>
+                        </div>
+
+                        <div className='d-flex justify-content-between m-2'>
+                            <h6>${item.price}</h6>
+                            <button onClick={buttonHandler} style={{ border: '0px', borderRadius: '50%', width: '30px', height: '30px', paddingBottom: '4px' }}>+</button>
+                        </div>
                     </div>
-
-                <div className='d-flex justify-content-between m-2'>
-                  <h6>$ {item.price}</h6>
-                    <button onClick={buttonHandler} style={{ border: '0px',borderRadius: '50%',width: '30px',height: '30px', paddingBottom: '4px'}}>+</button>
-                </div>
                   </div>
-                </div>
-              </div>
             ))
             ) : (
             <div className='col bg-light text-center'>
-            <h5>product not found</h5>
+            <h5>product not found!</h5>
             </div>
           )}
         </div>
