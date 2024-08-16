@@ -1,34 +1,41 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-import iphone12pro from '../../Assets/Images/phone-06.jpg'
-import iphone12max from '../../Assets/Images/phone-05.jpg'
-import realme from '../../Assets/Images/phone-03.png'
-import onepluse from '../../Assets/Images/phone-04.jpg'
-import samsungS22 from '../../Assets/Images/phone-02.jpg'
-import iphone13pro from '../../Assets/Images/phone-01.jpg'
-import headphone1 from '../../Assets/Images/wireless-01.png'
-import headphone2 from '../../Assets/Images/wireless-02.png'
-import headphone3 from '../../Assets/Images/wireless-03.png'
-import headphone4 from '../../Assets/Images/wireless-04.png'
+import { products } from '../Images/products'
 
 const Card3 = () => {
+
+    const [arrivals, setArrivals] = useState([]);
+    useEffect(()=>{
+        getArrivals();
+    },[]);
+
+    let getArrivals = ()=>{
+        let temp = products.filter((test)=>{
+            return test.category === 'mobile' || test.category === 'wireless' ;
+            
+        })
+        console.log(temp);
+        setArrivals(temp);
+    }
+
   return (
     <div className="container mt-4 mb-4" style={{backgroundColor:'white'}}>
     <h2 className='text-center p-4'>New Arrivals</h2>
 
     <div className="row g-2 d-flex justify-content-center">
-
-                <div className="col-md-4">
+            {
+                arrivals.map((temp)=>(
+                    <div className="col-md-4">
                     <div className="card" style={{height:'100%'}}>
 
                     <div className="card-body">
                         <div className='card-img-top d-flex justify-content-center'>
-                            <img src={iphone12pro} class="card-img-top w-75" alt={iphone12pro} />
+                            <img src={temp.imgUrl} class="card-img-top w-75" alt={temp.id} />
                         </div>
                     </div>
 
                     <div className="card-title">
-                    <h6 className='card-title m-2'>Apple iPhone 12 Pro</h6>
+                    <h6 className='card-title m-2'>{temp.productName}</h6>
                     <span className='d-flex mt-4 mb-4 m-2'>
                         <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
                         <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
@@ -39,14 +46,17 @@ const Card3 = () => {
                     </div>
 
                     <div className='d-flex justify-content-between m-2'>
-                        <h6>$ 799</h6>
+                        <h6>$ {temp.price}</h6>
                         <button  style={{ border: '0px', borderRadius: '50%', width: '30px', height: '30px', paddingBottom: '4px' }}>+</button>
                     </div>
                     </div>
-                </div>  
+                </div> 
+                ))
+            }
+                 
 
 
-                <div className="col-md-4">
+                {/* <div className="col-md-4">
                     <div className="card" style={{height:'100%'}}>
 
                     <div className="card-body">
@@ -291,7 +301,7 @@ const Card3 = () => {
                         <button  style={{ border: '0px', borderRadius: '50%', width: '30px', height: '30px', paddingBottom: '4px' }}>+</button>
                     </div>
                     </div>
-                </div>
+                </div> */}
     </div>
 </div>
   )
