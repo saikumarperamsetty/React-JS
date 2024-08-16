@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {discoutProducts, products} from '../Images/products'
 import {toast} from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
+
 
 const Shop = () => {
   const [productCategories, setProductCategories] = useState(discoutProducts);
@@ -66,7 +66,7 @@ const Shop = () => {
     </div>
 
     {/* for Every product */}
-        <div className="row g-2 d-flex justify-content-center">
+         <div className="row g-2 d-flex justify-content-center">
           {
             productCategories.length > 0 ? (
             productCategories.map((item)=>(
@@ -105,8 +105,8 @@ const Shop = () => {
             <h5>product not found</h5>
             </div>
           )}
-           </div>
         </div>
+  </div>
   )
 }
 
