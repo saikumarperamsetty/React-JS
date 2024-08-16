@@ -5,6 +5,7 @@ import { products } from '../Images/products'
 const Card3 = () => {
 
     const [arrivals, setArrivals] = useState([]);
+
     useEffect(()=>{
         getArrivals();
     },[]);
@@ -14,7 +15,7 @@ const Card3 = () => {
             return test.category === 'mobile' || test.category === 'wireless' ;
             
         })
-        console.log(temp);
+        // console.log(temp);
         setArrivals(temp);
     }
 
