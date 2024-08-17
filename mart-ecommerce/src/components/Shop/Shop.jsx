@@ -5,7 +5,12 @@ import {toast} from 'react-toastify'
 
 
 const Shop = () => {
-  const [productCategories, setProductCategories] = useState(discoutProducts);
+
+  let onlySofaProducts = products.filter((items)=>{
+    return items.category === 'sofa';
+  })
+
+  const [productCategories, setProductCategories] = useState(onlySofaProducts);
 
   const handleChange = (str)=>{
           let data = products.filter((items)=>{
@@ -22,7 +27,7 @@ const Shop = () => {
     if(data)
       setProductCategories(data);
     else
-    setProductCategories([]);
+      setProductCategories([]);
   }
 
   let buttonHandler = () =>{
