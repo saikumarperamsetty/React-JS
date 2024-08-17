@@ -4,7 +4,7 @@ import logo from '../Images/logo.png';
 
 const Header = () => {
   return (
-    <div>
+    <div className='sticky-top'>
 
       <nav class="navbar navbar-expand-lg navbar-dark bg-light shadow p-3 mb-5 bg-white rounded">
         <div class="container-fluid">
