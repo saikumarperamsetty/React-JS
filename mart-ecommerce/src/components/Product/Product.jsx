@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { products } from '../Images/products';
+import { discoutProducts, products } from '../Images/products';
 import { toast } from 'react-toastify';
 
 const Product = () => {
@@ -10,6 +10,7 @@ const Product = () => {
     const [product, setProduct] = useState({});
     const [like, setLike] = useState([]);
 
+    const [review, setReview] = useState([]);
 
     useEffect(()=>{
         getProduct()
@@ -21,7 +22,7 @@ const Product = () => {
         })
         // console.log(getItem);
         setProduct(getItem);
-    
+        setReview(getItem.reviews);
 
     // let mightLike = [];
     let mightLike = products.filter((item)=>{
@@ -77,7 +78,20 @@ const Product = () => {
         </div>
 
         <div className='row mt-3 mb-4'>
-          <h6>Description <span className='ms-4 text-muted'>Reviews (1)</span></h6>
+          <h6>Description <button  data-bs-toggle="collapse" data-bs-target="#Example1" className='ms-4' style={{border:'0px'}}>Reviews ({review.length})</button>
+        <div class="collapse" id="Example1">
+            {
+              review.map((index)=>(
+                <div class='mt-2 mb-2'>
+                  <p className='p-1'>Sai Kumar</p>
+                  <p className='text-warning'>{index.rating}(rating)</p>
+                  <p>{index.text}</p>
+                </div>
+              ))
+            }
+
+        </div>
+        </h6>
           <p>{product.description}</p>
         </div>
 
