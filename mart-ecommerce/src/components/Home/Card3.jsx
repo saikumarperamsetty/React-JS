@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react'
-
 import { products } from '../Images/products'
+import { toast } from 'react-toastify'
+import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import {addToCart} from '../../redux/productAction/ProductAction'
 
+//for card3
 const Card3 = () => {
+
+    const dispatch = useDispatch();
 
     const [arrivals, setArrivals] = useState([]);
 
@@ -19,7 +25,12 @@ const Card3 = () => {
         setArrivals(temp);
     }
 
+    let buttonHandler = () => {
+        toast.success("Added Successfully")
+      }
+
   return (
+    //for new arrivals
     <div className="container mt-4 mb-4" style={{backgroundColor:'white'}}>
     <h2 className='text-center p-4'>New Arrivals</h2>
 
@@ -30,9 +41,11 @@ const Card3 = () => {
                     <div className="card" style={{height:'100%'}}>
 
                     <div className="card-body">
-                        <div className='card-img-top d-flex justify-content-center'>
-                            <img src={temp.imgUrl} class="card-img-top w-75" alt={temp.id} />
-                        </div>
+                        <Link to={`product/${temp.id}`}>
+                            <div className='card-img-top d-flex justify-content-center'>
+                                <img src={temp.imgUrl} class="card-img-top w-75" alt={temp.id} />
+                            </div>
+                        </Link>
                     </div>
 
                     <div className="card-title">
@@ -48,7 +61,7 @@ const Card3 = () => {
 
                     <div className='d-flex justify-content-between m-2'>
                         <h6>$ {temp.price}</h6>
-                        <button  style={{ border: '0px', borderRadius: '50%', width: '30px', height: '30px', paddingBottom: '4px' }}>+</button>
+                        <button  style={{ border: '0px', borderRadius: '50%', width: '30px', height: '30px', paddingBottom: '4px' }} onClick={()=>{dispatch(addToCart(temp)); buttonHandler()}}>+</button>
                     </div>
                     </div>
                 </div> 

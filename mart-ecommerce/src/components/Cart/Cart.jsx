@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState} from 'react';
+import React,{ useState} from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { removeFromCart } from '../../redux/productAction/ProductAction';
@@ -7,53 +6,53 @@ import { Link } from 'react-router-dom';
 
 const Cart = () => {
 
-  const [itemCount, setitemCount] = useState(1);
+  // const [itemCount, setitemCount] = useState(1);
 
-  const incrementItem = (itemPrice) => {
-    setitemCount(itemCount + 1)
-  }
-  const decrementItem = (itemPrice) => {
-    if (itemCount > 1) {
-      setitemCount(itemCount - 1)
-    }
-  }
+  const [quantity, setQuantity] = useState(1)
 
   const dispatch = useDispatch();
-
   const cart_data = useSelector((state) => state.productData.cartData);
   // console.log(cart_data);
 
-  const totalPrice = cart_data.reduce((prevsValue, currentValue) => {
-    return prevsValue + currentValue.price;
-  }, 0)
+  const incrementItem = (item) => {
+    setQuantity(quantity + 1);
+}
 
-  const checkItemNumber = (id) => {
-    let itemNumber = cart_data.filter((item) => {
-      return item.id === id;
+const decrementItem = (item) => {
+if (quantity > 1) {
+  setQuantity(quantity - 1)
+}
+}
 
-    })
-  }
+const totalPrice = cart_data.reduce((prevsValue, currentValue) => {
+return prevsValue + currentValue.price;
+}, 0)
+
+  // const incrementItem = (itemPrice) => {
+  //   setitemCount(itemCount + 1)
+  // }
+  // const decrementItem = (itemPrice) => {
+  //   if (itemCount > 1) {
+  //     setitemCount(itemCount - 1)
+  //   }
+  // }
+
+  // const dispatch = useDispatch();
+
+  // const cart_data = useSelector((state) => state.productData.cartData);
+  // console.log(cart_data);
+
+  // const totalPrice = cart_data.reduce((prevsValue, currentValue) => {
+  //   return prevsValue + currentValue.price;
+  // }, 0)
+
+  // const checkItemNumber = (id) => {
+  //   let itemNumber = cart_data.filter((item) => {
+  //     return item.id === id;
+
+  //   })
+  // }
   return (
-  //  <div className="container">
-
-  //   <div className="row mt-4 mb-4">
-      
-  //     <div className="col-md-7 bg-light" style={{height:'25vh'}}>
-  //       No items added in cart
-  //     </div>
-
-  //     <div className="col-md-1"></div>
-
-  //     <div className="col-md-4 bg-light">
-  //       <h6 className='ms-2'>Cart Summary</h6>
-  //         <hr/>
-  //       <p className='ms-2'>Total price: </p>
-  //       <h4 className='ms-2'>0</h4>
-  //     </div>
-
-  //   </div>
-  //  </div>
-
 
   <div className='container' style={{ backgroundColor: '#f6f9fc' }}>
       <div className='row d-flex justify-content-evenly'>
@@ -74,18 +73,19 @@ const Cart = () => {
                         onClick={() => { dispatch(removeFromCart(item.id)) }}
                       ><i class="bi bi-x-lg"></i></Link>
                     </div>
+
                     <div className='d-flex justify-content-between align-items-center mt-4'>
                       <h6>
                         <span className='text-secondary'>${item.price}</span> *
-                        <span className='text-secondary'> {itemCount}</span>
-                        <span className='ms-4'>${item.price}</span>
+                        <span className='text-secondary'> {quantity}</span>
+                        <span className='ms-4'>${item.price*quantity}</span>
                       </h6>
                       <div className='me-4'>
                         <button className='pb-1' style={{ border: '0px' }}
-                          onClick={() => incrementItem(item.price)}
+                          onClick={() => incrementItem(item)}
                         >+</button>
                         <button className='ms-1 ps-2 pe-2 pb-1' style={{ border: '0px' }}
-                          onClick={() => decrementItem(item.price)}
+                          onClick={() => decrementItem(item)}
                         >-</button>
                       </div>
                     </div>

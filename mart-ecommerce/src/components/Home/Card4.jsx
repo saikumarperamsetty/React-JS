@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { products } from '../Images/products'
+import { toast } from 'react-toastify'
+import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import {addToCart} from '../../redux/productAction/ProductAction'
 
+//for card4
 const Card4 = () => {
+
+    const dispatch = useDispatch();
 
     const [bestSales, SetBestSales] = useState([]);
 
@@ -17,8 +24,13 @@ const Card4 = () => {
         SetBestSales(sale);
     }
 
+    let buttonHandler = () => {
+        toast.success("Added Successfully")
+      }
+
   return (
-    <div className="container mt-4 mb-4" style={{backgroundColor:'#f8f9fa'}}>
+    //for Best Sales
+    <div className="container mt-4 mb-4" style={{backgroundColor:'#f6f9fc'}}>
     <h2 className='text-center p-4'>Best Sales</h2>
 
     <div className="row g-2 d-flex justify-content-center">
@@ -29,9 +41,11 @@ const Card4 = () => {
                     <div className="card" style={{height:'100%'}}>
 
                     <div className="card-body">
-                        <div className='card-img-top d-flex justify-content-center'>
-                            <img src={sale.imgUrl} class="card-img-top w-75" alt={sale.id} />
-                        </div>
+                        <Link to={`product/${sale.id}`}>
+                            <div className='card-img-top d-flex justify-content-center'>
+                                <img src={sale.imgUrl} class="card-img-top w-75" alt={sale.id} />
+                            </div>
+                        </Link>
                     </div>
 
                     <div className="card-title">
@@ -47,7 +61,7 @@ const Card4 = () => {
 
                     <div className='d-flex justify-content-between m-2'>
                         <h6>$ {sale.price}</h6>
-                        <button  style={{ border: '0px', borderRadius: '50%', width: '30px', height: '30px', paddingBottom: '4px' }}>+</button>
+                        <button  style={{ border: '0px', borderRadius: '50%', width: '30px', height: '30px', paddingBottom: '4px' }} onClick={()=>{dispatch(addToCart(sale)); buttonHandler()}}>+</button>
                     </div>
                     </div>
                 </div>

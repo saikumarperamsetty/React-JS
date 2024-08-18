@@ -1,51 +1,81 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import {discoutProducts, products} from '../Images/products'
-import {toast} from 'react-toastify'
-
+import { products } from '../Images/products'
+import { toast } from 'react-toastify'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../../redux/productAction/ProductAction'
+import cover from '../../Assets/Images/cover.jpg'
 
 const Shop = () => {
 
+  const [coverHeading,setCoverHeading] = useState('product')
+
+  const dispatch = useDispatch();
+
+  // for initial-items (by using filter) to show the page
   let onlySofaProducts = products.filter((items)=>{
     return items.category === 'sofa';
   })
 
   const [productCategories, setProductCategories] = useState(onlySofaProducts);
 
-  const handleChange = (str)=>{
-          let data = products.filter((items)=>{
-            return items.category === str;
-})
-    setProductCategories(data);
+  // item search with dropdown
+  let LinkButtonHandler = (category) => {
+    let getItems = products.filter((item) => {
+      return item.category === category;
+    })
+    setProductCategories(getItems)
+    setCoverHeading(category)
   }
 
-  const handleSubmit =(event) =>{
+  // item search with search input
+//   const handleChange = (str)=>{
+//           let data = products.filter((items)=>{
+//             return items.category === str;
+// })
+//     setProductCategories(data);
+//   }
+
+  const handelSubmit = (event) => {
     event.preventDefault();
-    let data = products.filter((items) => {
-      return items.category === event.target[0].value;
+    let getItems = products.filter((item) => {
+      return item.category === event.target[0].value
     })
-    if(data)
-      setProductCategories(data);
+    if (getItems){
+      setProductCategories(getItems)
+      setCoverHeading(event.target[0].value)
+    }
     else
-      setProductCategories([]);
+      setProductCategories([])
   }
+  // const handleSubmit =(event) =>{
+  //   event.preventDefault();
+  //   let getItems = products.filter((items) => {
+  //     return items.category === event.target[0].value;
+  //   })
+  //   if(getItems)
+  //     setProductCategories(getItems);
+  //     setCoverHeading(event.target[0].value)
+  //   else
+  //     setProductCategories([]);
+  // }
 
   let buttonHandler = () =>{
     toast.success('Product has been added to Cart!!');
   }
 
   return (
-
+    <div>
+    <div class="position-relative">
+      <img src={cover} alt='cover' style={{width:'100%',height:'25vh',filter:'brightness(40%)'}} />
+      <h3 className="position-absolute top-50 start-50 translate-middle text-white" style={{ zIndex: 2}}>{coverHeading}</h3>
+  </div>
     <div className='container mt-4 mb-4'>
-
-      <div>
-        <h3 className='text-center'>product</h3>
-      </div>
 
     {/* For dropdown and search bar */}
       <div className='row mt-4 mb-4 '>
 
-        <div className='col-md-4'>
+        <div className='col-md-4 mt-2'>
       <div class="dropdown">
           <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{backgroundColor:'#0f3460',color:'white'}}>
               filterd by Catagory
@@ -53,17 +83,17 @@ const Shop = () => {
           
 
       <ul class="dropdown-menu">
-          <li><Link class="dropdown-item" onClick={()=>handleChange('sofa')}>Sofa</Link></li>
-          <li><Link class="dropdown-item" onClick={()=>handleChange('chair')}>Chair</Link></li>
-          <li><Link class="dropdown-item" onClick={()=>handleChange('watch')}>Watch</Link></li>
-          <li><Link class="dropdown-item" onClick={()=>handleChange('mobile')}>Mobile</Link></li>
-          <li><Link class="dropdown-item" onClick={()=>handleChange('wireless')}>Wireless</Link></li>
+          <li><Link class="dropdown-item" onClick={()=>LinkButtonHandler('sofa')}>Sofa</Link></li>
+          <li><Link class="dropdown-item" onClick={()=>LinkButtonHandler('chair')}>Chair</Link></li>
+          <li><Link class="dropdown-item" onClick={()=>LinkButtonHandler('watch')}>Watch</Link></li>
+          <li><Link class="dropdown-item" onClick={()=>LinkButtonHandler('mobile')}>Mobile</Link></li>
+          <li><Link class="dropdown-item" onClick={()=>LinkButtonHandler('wireless')}>Wireless</Link></li>
       </ul>
       </div>
     </div>
 
-      <div className="col-md-8">
-        <form className='d-flex' role='search' onSubmit={handleSubmit}>
+      <div className="col-md-8 mt-2">
+        <form className='d-flex' role='search' onSubmit={handelSubmit}>
           <input className='form-control' type="search" placeholder="search" />
           <button style={{border:'0px'}} type='submit'><i className="bi bi-search p-2 ms-2"></i></button>
         </form>
@@ -90,7 +120,7 @@ const Shop = () => {
 
                         <div className="card-title">
                         <h6 className='card-title m-2'>{item.productName}</h6>
-                        <span className='d-flex mt-4 mb-4 m-2'>
+                        <span className='d-flex mt-4 mb-4'>
                             <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
                             <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
                             <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
@@ -99,19 +129,20 @@ const Shop = () => {
                         </span>
                         </div>
 
-                        <div className='d-flex justify-content-between m-2'>
+                        <div className='d-flex justify-content-between'>
                             <h6>${item.price}</h6>
-                            <button onClick={buttonHandler} style={{ border: '0px', borderRadius: '50%', width: '30px', height: '30px', paddingBottom: '4px' }}>+</button>
+                            <button onClick={() => { dispatch(addToCart(item)); buttonHandler()}} style={{ border: '0px', borderRadius: '50%', width: '30px', height: '30px', paddingBottom: '4px' }}>+</button>
                         </div>
                     </div>
                   </div>
             ))
             ) : (
             <div className='col bg-light text-center'>
-            <h5>product not found!</h5>
+            <h5>product not found!!</h5>
             </div>
           )}
         </div>
+  </div>
   </div>
   )
 }
