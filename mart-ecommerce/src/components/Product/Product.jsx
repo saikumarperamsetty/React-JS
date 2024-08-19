@@ -31,7 +31,7 @@ const Product = () => {
         setCoverHeading(getItem.productName);
 
     let mightLike = products.filter((item)=>{
-            return item.category === getItem.category;
+            return item.category === getItem.category && item.id !== getItem.id;
     })
     // console.log(getLike);
     setLike(mightLike);
