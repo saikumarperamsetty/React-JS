@@ -14,13 +14,16 @@ const Header = () => {
     // Header
     <div className='sticky-top'>
 
-      <nav class="navbar navbar-expand-lg navbar-dark bg-light shadow p-3 mb-5 bg-white rounded">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-light shadow p-3 bg-white rounded">
+
         <div class="container-fluid">
 
           <Link class="navbar-brand ms-4" to="/">
-            <img src={logo} alt="logo" style={{height:'50px'}}/>
+            <img src={logo} alt="logo" style={{height:'70px'}}/>
           </Link>
-
+          <button className="navbar-toggler bg-dark" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+              <span className="navbar-toggler-icon"></span>
+          </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav ms-auto">
 

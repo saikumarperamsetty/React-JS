@@ -5,8 +5,8 @@ import { SliderData } from '../Images/products'
 const Carousel = () => {
   return (
     <div style={{backgroundColor:'#f6f9fc'}}>
-      <div id="carouselExampleSlidesOnly" class="carousel slide mt-2" data-bs-ride="carousel">
-        <div class="carousel-inner">
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner ms-2">
 
         <div class="carousel-item active" data-bs-interval="3000" >
               <div className='row d-flex align-items-center' style={{height:'100vh'}}>

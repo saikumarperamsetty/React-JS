@@ -55,7 +55,7 @@ const Card4 = () => {
                         <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
                         <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
                         <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
-                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
                     </span>
                     </div>
 

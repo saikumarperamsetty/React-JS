@@ -48,24 +48,13 @@ const Shop = () => {
     else
       setProductCategories([])
   }
-  // const handleSubmit =(event) =>{
-  //   event.preventDefault();
-  //   let getItems = products.filter((items) => {
-  //     return items.category === event.target[0].value;
-  //   })
-  //   if(getItems)
-  //     setProductCategories(getItems);
-  //     setCoverHeading(event.target[0].value)
-  //   else
-  //     setProductCategories([]);
-  // }
 
   let buttonHandler = () =>{
     toast.success('Product has been added to Cart!!');
   }
 
   return (
-    <div>
+    <>
     <div class="position-relative">
       <img src={cover} alt='cover' style={{width:'100%',height:'25vh',filter:'brightness(40%)'}} />
       <h3 className="position-absolute top-50 start-50 translate-middle text-white" style={{ zIndex: 2}}>{coverHeading}</h3>
@@ -121,17 +110,19 @@ const Shop = () => {
                         <div className="card-title">
                         <h6 className='card-title m-2'>{item.productName}</h6>
                         <span className='d-flex mt-4 mb-4'>
-                            <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
-                            <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
-                            <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
-                            <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
-                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star-fill ms-2" style={{color:'#ffcd4e'}}></i>
+                            <i class="bi bi-star-fill ms-1" style={{color:'#ffcd4e'}}></i>
+                            <i class="bi bi-star-fill ms-1" style={{color:'#ffcd4e'}}></i>
+                            <i class="bi bi-star-fill ms-1" style={{color:'#ffcd4e'}}></i>
+                            <i class="bi bi-star-fill ms-1" style={{color:'#ffcd4e'}}></i>
                         </span>
                         </div>
 
                         <div className='d-flex justify-content-between'>
-                            <h6>${item.price}</h6>
-                            <button onClick={() => { dispatch(addToCart(item)); buttonHandler()}} style={{ border: '0px', borderRadius: '50%', width: '30px', height: '30px', paddingBottom: '4px' }}>+</button>
+                            <h6 className='ms-2'>${item.price}</h6>
+                            <button className='me-2 mb-2' onClick={() => { dispatch(addToCart(item)); buttonHandler()}} 
+                            style={{ border: '0px', borderRadius: '50%', width: '25px', height: '25px', paddingBottom: '4px' }}
+                            >+</button>
                         </div>
                     </div>
                   </div>
@@ -143,7 +134,7 @@ const Shop = () => {
           )}
         </div>
   </div>
-  </div>
+  </>
   )
 }
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import { products } from '../Images/products';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux'
@@ -7,6 +7,12 @@ import { addToCart } from '../../redux/productAction/ProductAction'
 import cover from '../../Assets/Images/cover.jpg'
 
 const Product = () => {
+
+  //for Scoll top off every product
+    const {pathname} = useLocation();
+    useEffect(()=>{
+      window.scrollTo(0,0);
+    },[pathname]);
 
     let {id} = useParams();
 
@@ -36,7 +42,7 @@ const Product = () => {
     // console.log(getLike);
     setLike(mightLike);
  }
-
+  
     let handleSubmit = (e)=>{
       e.preventDefault();
       toast.success('Item added to Cart!');
