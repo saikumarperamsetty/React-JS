@@ -4,7 +4,7 @@ import { products } from '../Images/products';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../../redux/productAction/ProductAction'
-import cover from '../../Assets/Images/cover.jpg'
+import cover from '../Images/cover.jpg'
 
 const Product = () => {
 

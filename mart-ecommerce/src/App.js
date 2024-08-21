@@ -12,7 +12,7 @@ function App() {
       <Header />
       <Routing />
       <Footer />
-      <ToastContainer/>
+      <ToastContainer autoClose={1000}/>
     </div>
   );
 }

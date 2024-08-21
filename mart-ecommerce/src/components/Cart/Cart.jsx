@@ -1,57 +1,19 @@
-import React,{ useState} from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { removeFromCart } from '../../redux/productAction/ProductAction';
+import { removeFromCart, setIncrement, setDecrement } from '../../redux/productAction/ProductAction';
 import { Link } from 'react-router-dom';
 
 const Cart = () => {
 
-  // const [itemCount, setitemCount] = useState(1);
-
-  const [quantity, setQuantity] = useState(1)
-
   const dispatch = useDispatch();
+
   const cart_data = useSelector((state) => state.productData.cartData);
-  // console.log(cart_data);
 
-  const incrementItem = (item) => {
-    setQuantity(quantity + 1);
-}
+  const totalPrice = cart_data.reduce((prevsValue, currentValue) => {
+  return prevsValue + currentValue.price*currentValue.quantity;
+  }, 0)
 
-const decrementItem = (item) => {
-if (quantity > 1) {
-  setQuantity(quantity - 1)
-}
-}
-
-const totalPrice = cart_data.reduce((prevsValue, currentValue) => {
-return prevsValue + currentValue.price;
-}, 0)
-
-  // const incrementItem = (itemPrice) => {
-  //   setitemCount(itemCount + 1)
-  // }
-  // const decrementItem = (itemPrice) => {
-  //   if (itemCount > 1) {
-  //     setitemCount(itemCount - 1)
-  //   }
-  // }
-
-  // const dispatch = useDispatch();
-
-  // const cart_data = useSelector((state) => state.productData.cartData);
-  // console.log(cart_data);
-
-  // const totalPrice = cart_data.reduce((prevsValue, currentValue) => {
-  //   return prevsValue + currentValue.price;
-  // }, 0)
-
-  // const checkItemNumber = (id) => {
-  //   let itemNumber = cart_data.filter((item) => {
-  //     return item.id === id;
-
-  //   })
-  // }
   return (
 
   <div className='container' style={{ backgroundColor: '#f6f9fc' }}>
@@ -70,22 +32,22 @@ return prevsValue + currentValue.price;
                     <div className='d-flex justify-content-between' >
                       <h4 className='mt-4'>{item.productName}</h4>
                       <Link className='fw-bold mt-3' style={{ color: 'black' }}
-                        onClick={() => { dispatch(removeFromCart(item.id)) }}
+                        onClick={() =>  dispatch(removeFromCart(item.id))}
                       ><i class="bi bi-x-lg"></i></Link>
                     </div>
 
                     <div className='d-flex justify-content-between align-items-center mt-4'>
                       <h6>
                         <span className='text-secondary'>${item.price}</span> *
-                        <span className='text-secondary'> {quantity}</span>
-                        <span className='ms-4'>${item.price*quantity}</span>
+                        <span className='text-secondary'> {item.quantity}</span>
+                        <span className='ms-4'>${item.quantity*item.price}</span>
                       </h6>
                       <div className='me-4'>
                         <button className='pb-1' style={{ border: '0px' }}
-                          onClick={() => incrementItem(item)}
+                          onClick={() => {dispatch(setIncrement(item.id))}}
                         >+</button>
                         <button className='ms-1 ps-2 pe-2 pb-1' style={{ border: '0px' }}
-                          onClick={() => decrementItem(item)}
+                          onClick={() =>  {dispatch(setDecrement(item.id))}}
                         >-</button>
                       </div>
                     </div>
@@ -107,13 +69,12 @@ return prevsValue + currentValue.price;
             <h6 className='mt-4'>Cart Summary</h6>
             <hr />
             <p>Total Price :</p>
-            <h3>$ {totalPrice}</h3>
+            <h3>$ {totalPrice}.00</h3>
           </div>
         </div>
 
       </div>
     </div>
-
 
   )
 }

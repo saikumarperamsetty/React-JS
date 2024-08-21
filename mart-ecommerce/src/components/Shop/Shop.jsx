@@ -4,7 +4,7 @@ import { products } from '../Images/products'
 import { toast } from 'react-toastify'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../../redux/productAction/ProductAction'
-import cover from '../../Assets/Images/cover.jpg'
+import cover from '../Images/cover.jpg'
 
 const Shop = () => {
 
@@ -27,14 +27,6 @@ const Shop = () => {
     setProductCategories(getItems)
     setCoverHeading(category)
   }
-
-  // item search with search input
-//   const handleChange = (str)=>{
-//           let data = products.filter((items)=>{
-//             return items.category === str;
-// })
-//     setProductCategories(data);
-//   }
 
   const handelSubmit = (event) => {
     event.preventDefault();
@@ -118,10 +110,10 @@ const Shop = () => {
                         </span>
                         </div>
 
-                        <div className='d-flex justify-content-between'>
+                        <div className='d-flex justify-content-between align-items-center'>
                             <h6 className='ms-2'>${item.price}</h6>
                             <button className='me-2 mb-2' onClick={() => { dispatch(addToCart(item)); buttonHandler()}} 
-                            style={{ border: '0px', borderRadius: '50%', width: '25px', height: '25px', paddingBottom: '4px' }}
+                            style={{ border: '0px', borderRadius: '50%', width: '40px', height: '40px', paddingBottom: '4px', fontSize:'25px'}}
                             >+</button>
                         </div>
                     </div>
