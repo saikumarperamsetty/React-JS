@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+/* for heart-icon HoverEffect */
+.bi-heart-fill{
+  opacity: 0;
+}
+.card:hover .bi-heart-fill{
+  opacity: 1;
+}
+.card button:hover {
+  background-color: #0f3460;
+}

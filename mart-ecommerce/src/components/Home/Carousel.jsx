@@ -5,17 +5,17 @@ import { SliderData } from '../Images/products'
 const Carousel = () => {
   return (
     <div style={{backgroundColor:'#f6f9fc'}}>
-      <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner ms-2">
+      <div id="carousel slide" data-bs-ride="carousel">
+        <div className="carousel-inner ms-2"  data-bs-interval="3000">
 
-        <div class="carousel-item active" data-bs-interval="3000" >
+        <div className="carousel-item active">
               <div className='row d-flex align-items-center' style={{height:'100vh'}}>
                 <div className='col-md-1'></div>
 
                 <div className='col-md-5'>
                   <h1>{SliderData[0].title}</h1>
                   <p className='text-secondary'>{SliderData[0].desc}</p>
-                  <button style={{border:'0px',borderRadius:'5px'}}>Visit Collection</button>
+                  <button style={{border:'0px', borderRadius:'5px'}}>Visit Collection</button>
                 </div>
 
                 <div className='col-md-1'></div>
@@ -26,16 +26,16 @@ const Carousel = () => {
 
                 <div className='col-md-1'></div>
               </div>
-            </div>
+        </div>
 
-            <div class="carousel-item" data-bs-interval="3000" >
+            <div className="carousel-item">
               <div className='row d-flex align-items-center' style={{height:'100vh'}}>
                 <div className='col-md-1'></div>
 
                 <div className='col-md-5'>
                   <h1>{SliderData[1].title}</h1>
                   <p className='text-secondary'>{SliderData[1].desc}</p>
-                  <button style={{border:'0px',borderRadius:'5px'}}>Visit Collection</button>
+                  <button style={{border:'0px', borderRadius:'5px'}}>Visit Collection</button>
                 </div>
                 
                 <div className='col-md-1'></div>
@@ -49,14 +49,14 @@ const Carousel = () => {
             </div>
 
 
-            <div class="carousel-item" data-bs-interval="3000" >
+            <div className="carousel-item">
               <div className='row d-flex align-items-center' style={{height:'100vh'}}>
                 <div className='col-md-1'></div>
 
                 <div className='col-md-5'>
                   <h1>{SliderData[2].title}</h1>
                   <p className='text-secondary'>{SliderData[2].desc}</p>
-                  <button style={{border:'0px',borderRadius:'5px'}}>Visit Collection</button>
+                  <button style={{border:'0px', borderRadius:'5px'}}>Visit Collection</button>
                 </div>
                 
                 <div className='col-md-1'></div>
@@ -70,14 +70,14 @@ const Carousel = () => {
             </div>
 
 
-            <div class="carousel-item" data-bs-interval="3000" >
+            <div className="carousel-item">
               <div className='row d-flex align-items-center' style={{height:'100vh'}}>
                 <div className='col-md-1'></div>
 
                 <div className='col-md-5'>
                   <h1>{SliderData[3].title}</h1>
                   <p className='text-secondary'>{SliderData[3].desc}</p>
-                  <button style={{border:'0px',borderRadius:'5px'}}>Visit Collection</button>
+                  <button style={{border:'0px', borderRadius:'5px'}}>Visit Collection</button>
                 </div>
                 
                 <div className='col-md-1'></div>

@@ -10,18 +10,6 @@ const Card2 = () => {
 
     const dispatch = useDispatch();
 
-    // const [hoverHeartAndButton, sethoverHeartAndButton] = useState('block');
-    // let temp = 'block'
-    
-    // let hov = (id)=>{
-    // if(temp==='block'){
-    //     temp = 'none'
-    //     sethoverHeartAndButton('none')
-    //     }else{
-    //         sethoverHeartAndButton('block')
-    //             temp = 'block'
-    //     }
-
     let buttonHandler = () => {
       toast.success("Added Successfully!")
     }
@@ -38,11 +26,11 @@ const Card2 = () => {
                 discoutProducts.map((disc)=>(
 
                     <div className="col-md-4">
-                        <div className="card" style={{height:'100%'}} onMouseEnter={()=>hov(disc.id)}>
+                        <div className="card" style={{height:'100%'}}>
 
                         <div className='d-flex justify-content-between m-2'>
                           <span className='p-2' style={{borderRadius:'5px',backgroundColor:'#0f3460',color:'white'}}>{disc.discount}% Off</span>
-                        <i class="bi bi-heart"  style={{color:'red',display:temp}} ></i>
+                        <i className="bi bi-heart-fill" style={{color:'#0f3460'}}></i>
                         </div>
 
                         <div className="card-body">
@@ -56,17 +44,17 @@ const Card2 = () => {
                         <div className="card-title">
                         <h6 className='card-title m-2'>{disc.productName}</h6>
                         <span className='d-flex mt-4 mb-4 m-2'>
-                            <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
-                            <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
-                            <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
-                            <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
-                            <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
+                            <i className="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
+                            <i className="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
+                            <i className="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
+                            <i className="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
+                            <i className="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
                         </span>
                         </div>
 
                         <div className='d-flex justify-content-between align-items-center m-2'>
                             <h6>${disc.price}</h6>
-                            <button  style={{ border: '0px', borderRadius: '50%', width: '40px', height: '40px', paddingBottom: '10px', fontSize:'25px'}} onClick={()=>{dispatch(addToCart(disc)); buttonHandler()}}>+</button>
+                            <button  style={{ border: '0px', borderRadius: '50%', width: '40px', height: '40px', paddingBottom: '10px', fontSize:'25px', color:'#0f3460'}} onClick={()=>{dispatch(addToCart(disc)); buttonHandler()}}>+</button>
                         </div>
                         </div>
                     </div>  

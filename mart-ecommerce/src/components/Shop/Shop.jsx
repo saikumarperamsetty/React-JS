@@ -47,7 +47,7 @@ const Shop = () => {
 
   return (
     <>
-    <div class="position-relative">
+    <div className="position-relative">
       <img src={cover} alt='cover' style={{width:'100%',height:'25vh',filter:'brightness(40%)'}} />
       <h3 className="position-absolute top-50 start-50 translate-middle text-white" style={{ zIndex: 2}}>{coverHeading}</h3>
   </div>
@@ -57,18 +57,18 @@ const Shop = () => {
       <div className='row mt-4 mb-4 '>
 
         <div className='col-md-4 mt-2'>
-      <div class="dropdown">
-          <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{backgroundColor:'#0f3460',color:'white'}}>
+      <div className="dropdown">
+          <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{backgroundColor:'#0f3460', color:'white'}}>
               filterd by Catagory
           </button>
           
 
       <ul class="dropdown-menu">
-          <li><Link class="dropdown-item" onClick={()=>LinkButtonHandler('sofa')}>Sofa</Link></li>
-          <li><Link class="dropdown-item" onClick={()=>LinkButtonHandler('chair')}>Chair</Link></li>
-          <li><Link class="dropdown-item" onClick={()=>LinkButtonHandler('watch')}>Watch</Link></li>
-          <li><Link class="dropdown-item" onClick={()=>LinkButtonHandler('mobile')}>Mobile</Link></li>
-          <li><Link class="dropdown-item" onClick={()=>LinkButtonHandler('wireless')}>Wireless</Link></li>
+          <li><Link className="dropdown-item" onClick={()=>LinkButtonHandler('sofa')}>Sofa</Link></li>
+          <li><Link className="dropdown-item" onClick={()=>LinkButtonHandler('chair')}>Chair</Link></li>
+          <li><Link className="dropdown-item" onClick={()=>LinkButtonHandler('watch')}>Watch</Link></li>
+          <li><Link className="dropdown-item" onClick={()=>LinkButtonHandler('mobile')}>Mobile</Link></li>
+          <li><Link className="dropdown-item" onClick={()=>LinkButtonHandler('wireless')}>Wireless</Link></li>
       </ul>
       </div>
     </div>
@@ -102,11 +102,11 @@ const Shop = () => {
                         <div className="card-title">
                         <h6 className='card-title m-2'>{item.productName}</h6>
                         <span className='d-flex mt-4 mb-4'>
-                            <i class="bi bi-star-fill ms-2" style={{color:'#ffcd4e'}}></i>
-                            <i class="bi bi-star-fill ms-1" style={{color:'#ffcd4e'}}></i>
-                            <i class="bi bi-star-fill ms-1" style={{color:'#ffcd4e'}}></i>
-                            <i class="bi bi-star-fill ms-1" style={{color:'#ffcd4e'}}></i>
-                            <i class="bi bi-star-fill ms-1" style={{color:'#ffcd4e'}}></i>
+                            <i className="bi bi-star-fill ms-1" style={{color:'#ffcd4e'}}></i>
+                            <i className="bi bi-star-fill ms-1" style={{color:'#ffcd4e'}}></i>
+                            <i className="bi bi-star-fill ms-1" style={{color:'#ffcd4e'}}></i>
+                            <i className="bi bi-star-fill ms-2" style={{color:'#ffcd4e'}}></i>
+                            <i className="bi bi-star-fill ms-1" style={{color:'#ffcd4e'}}></i>
                         </span>
                         </div>
 

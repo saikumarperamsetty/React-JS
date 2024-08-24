@@ -57,7 +57,7 @@ const Cart = () => {
               ))
             ) : (
               <div className='d-flex justify-content-center align-items-center' style={{ height: '25vh' }}>
-                <h4>No Items add in cart</h4>
+                <h4>No Items added in cart</h4>
               </div>
             )
           }

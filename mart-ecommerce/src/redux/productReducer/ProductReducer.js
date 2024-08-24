@@ -63,15 +63,3 @@ export const productReducer = (state = intlState, action) =>{
                     return state;
     }
 };
-
-/* hint
-let finditem = cartData.find((item)=>{
-        item.id === cartData.id
-    })
-        if(finditem){
-        
-        }else{
-        cartData.push()
-        }
-        
-*/

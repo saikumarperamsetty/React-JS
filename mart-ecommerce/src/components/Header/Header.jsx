@@ -7,46 +7,45 @@ const Header = () => {
 
 // for Item increasing cartIcon Notification
   const cart_data = useSelector((state) => state.productData.cartData);
-    let singleItem = cart_data.filter((value, index) => cart_data.indexOf(value) === index)
-    let cartLength = singleItem.length
+    let cartLength = cart_data.length
 
   return (
     // Header
-    <div className='sticky-top'>
+    <>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-light shadow p-3 bg-white rounded sticky-top">
 
-      <nav class="navbar navbar-expand-lg navbar-dark bg-light shadow p-3 bg-white rounded">
+        <div className="container-fluid">
 
-        <div class="container-fluid">
+            <img src={logo} alt="logo img" style={{height:'70px'}}/>
 
-          <Link class="navbar-brand ms-4" to="/">
-            <img src={logo} alt="logo" style={{height:'70px'}}/>
-          </Link>
           <button className="navbar-toggler bg-dark" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
               <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav ms-auto">
+          
+          <div className="collapse navbar-collapse" id="navbarCollapse">
+            <ul className="navbar-nav ms-auto">
 
-              <li class="nav-item me-4">
-                <Link class="nav-link text-dark" to="/">Home</Link>
+              <li className="nav-item me-4">
+                <Link className="nav-link text-dark" to="/">Home</Link>
               </li>
 
-              <li class="nav-item me-4">
-                <Link class="nav-link text-dark" to="/shop">Shop</Link>
+              <li className="nav-item me-4">
+                <Link className="nav-link text-dark" to="/shop">Shop</Link>
               </li>
 
-              <li class="nav-item me-4">
-                <Link class="nav-link text-dark" to="/cart">Cart</Link>
+              <li className="nav-item me-4">
+                <Link className="nav-link text-dark" to="/cart">Cart</Link>
               </li>
               
-              <li class="nav-item me-4">
-                <Link class="nav-link text-dark" to="/userIcon"><i class="bi bi-person-fill"></i></Link>
+              <li className="nav-item me-4">
+                <Link className="nav-link text-dark" to="/userIcon"><i class="bi bi-person-fill"></i></Link>
               </li>
 
-              <li class="nav-item me-4">
-                <Link class="nav-link text-dark" to="/cartIcon"><i class="bi bi-cart-fill"></i>
+              <li className="nav-item me-4">
+                <Link className="nav-link text-dark" to="/cartIcon">
+                <i className="bi bi-cart-fill"></i>
                 <span className="bg-info p-1 rounded-circle position-absolute translate-middle text-center" style={{ width: '25px', height: '25px', lineHeight: '18px' }}>{cartLength}</span>
-                </Link>
+              </Link>
               </li>
 
             </ul>
@@ -54,8 +53,7 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      
-    </div>
+      </>
   )
 }
 

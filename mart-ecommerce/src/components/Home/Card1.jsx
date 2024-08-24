@@ -10,8 +10,8 @@ const Card1 = () => {
     { 
         serviceData.map((items)=> (
             <div className='col-md-3 mb-3 mb-md-0'>
-                    <div class="card text-center" style={{backgroundColor: items.bg}}>
-                        <div class="card-body">
+                    <div className="card text-center" style={{backgroundColor: items.bg}}>
+                        <div className="card-body">
                             <span className='bg-light p-2 rounded-circle text-center'>{items.icon}</span>
                             <h5 className='card-title m-3'>{items.title}</h5>
                             <p className='card-text m-3'>{items.subtitle}</p>

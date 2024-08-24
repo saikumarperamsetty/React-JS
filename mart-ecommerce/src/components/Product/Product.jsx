@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useLocation, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { products } from '../Images/products';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux'
@@ -7,14 +7,13 @@ import { addToCart } from '../../redux/productAction/ProductAction'
 import cover from '../Images/cover.jpg'
 
 const Product = () => {
+  
+  let {id} = useParams();
 
   //for Scoll top off every product
-    const {pathname} = useLocation();
     useEffect(()=>{
-      window.scrollTo(0,0);
-    },[pathname]);
-
-    let {id} = useParams();
+      window.scrollTo(0,150);
+    },[id]);
 
     const dispatch = useDispatch();
 
@@ -55,7 +54,7 @@ const Product = () => {
   return (
     <>
     {/*Cover Photo */}
-      <div class="position-relative">
+      <div className="position-relative">
         <img src={cover} alt='cover' style={{ width: '100%', height: '25vh', filter: 'brightness(40%)' }} />
         <h3 className="position-absolute top-50 start-50 translate-middle text-white" style={{ zIndex: 2 }}>{coverHeading}</h3>
       </div>
@@ -135,17 +134,17 @@ const Product = () => {
                     <div className="card-title">
                     <h6 className='card-title m-2'>{items.productName}</h6>
                     <span className='d-flex mt-4 mb-4 m-2'>
-                        <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
-                        <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
-                        <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
-                        <i class="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
-                        <i class="bi bi-star"></i>
+                        <i className="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
+                        <i className="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
+                        <i className="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
+                        <i className="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
+                        <i className="bi bi-star"></i>
                     </span>
                     </div>
 
                     <div className='d-flex justify-content-between m-2'>
                         <h6>$ {items.price}</h6>
-                        <button  style={{ border: '0px', borderRadius: '50%', width: '30px', height: '30px', paddingBottom: '4px' }} onClick={() => { dispatch(addToCart(items)); buttonHandler() }}>+</button>
+                        <button  style={{ border: '0px', borderRadius: '50%', width: '40px', height: '40px', paddingBottom: '4px', fontSize:'25px' }} onClick={() => { dispatch(addToCart(items)); buttonHandler() }}>+</button>
                     </div>
                     </div>
                 </div>
