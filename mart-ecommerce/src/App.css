@@ -44,6 +44,6 @@
 .card:hover .bi-heart-fill{
   opacity: 1;
 }
-.card button:hover {
+.card:hover button {
   background-color: #0f3460;
 }

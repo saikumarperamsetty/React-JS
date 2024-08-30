@@ -26,7 +26,6 @@ const Carousel = () => {
 
                 <div className='col-md-1'></div>
               </div>
-        </div>
 
             <div className="carousel-item">
               <div className='row d-flex align-items-center' style={{height:'100vh'}}>
@@ -89,7 +88,7 @@ const Carousel = () => {
                 <div className='col-md-1'></div>
               </div>
             </div>
-
+</div>
       </div>
     </div>
 </div>
