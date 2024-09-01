@@ -102,10 +102,10 @@ const Shop = () => {
                         <div className="card-title">
                         <h6 className='card-title m-2'>{item.productName}</h6>
                         <span className='d-flex mt-4 mb-4'>
+                            <i className="bi bi-star-fill" style={{color:'#ffcd4e'}}></i>
                             <i className="bi bi-star-fill ms-1" style={{color:'#ffcd4e'}}></i>
                             <i className="bi bi-star-fill ms-1" style={{color:'#ffcd4e'}}></i>
                             <i className="bi bi-star-fill ms-1" style={{color:'#ffcd4e'}}></i>
-                            <i className="bi bi-star-fill ms-2" style={{color:'#ffcd4e'}}></i>
                             <i className="bi bi-star-fill ms-1" style={{color:'#ffcd4e'}}></i>
                         </span>
                         </div>
